@@ -28,7 +28,6 @@ public class Deputy {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-
 //	@ManyToMany(fetch = FetchType.EAGER, cascade = {
 //	        CascadeType.PERSIST,
 //	        CascadeType.MERGE
@@ -37,9 +36,6 @@ public class Deputy {
 //        name = "deputy_offender",
 //        joinColumns = { @JoinColumn(name = "deputy_id") },
 //        inverseJoinColumns = { @JoinColumn(name = "offender_id") })
-//	
-//	
-	
 	
 	@Column(name="username", unique=true, nullable=false)
 	private String username;
@@ -50,14 +46,11 @@ public class Deputy {
 	@Column(name="password", unique=false, nullable=false)
 	private String password;
 	
-	
-	
-	
-	public Deputy() {}
 
-	
-	
-	
+	public Deputy(){
+		super();
+	}
+
 	public Deputy(int id, String username, String email, String password) {
 		super();
 		this.id = id;
@@ -66,35 +59,6 @@ public class Deputy {
 		this.password = password;
 	}
 	
-	
-
-
-
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(email, id, password, username);
-	}
-
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Deputy other = (Deputy) obj;
-		return Objects.equals(email, other.email) && id == other.id && Objects.equals(password, other.password)
-				&& Objects.equals(username, other.username);
-	}
-
-
-
-
 	public int getId() {
 		return id;
 	}
@@ -127,12 +91,23 @@ public class Deputy {
 		this.password = password;
 	}
 	
-	
-	
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, id, password, username);
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Deputy other = (Deputy) obj;
+		return Objects.equals(email, other.email) && id == other.id && Objects.equals(password, other.password)
+				&& Objects.equals(username, other.username);
+	}
+	
 }
-
-
-
 
