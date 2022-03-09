@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -57,14 +59,29 @@ public class Offender {
 	@Column(name="hair", unique=false, nullable=false)
 	private String hair;
 	
-//	@Column(name="offense", unique=false, nullable=false)
-//	private List<String> offenses;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="order_by", unique=false, nullable=false)
+	private int orderBy;
+	
+//	@JsonManagedReference
+	@OneToMany(mappedBy="offender", fetch=FetchType.EAGER)
+	private List<Offense> offenses;
 	
 	
+	
+	
+	public List<Offense> getOffenses() {
+		return offenses;
+	}
+
+	public void setOffenses(List<Offense> offenses) {
+		this.offenses = offenses;
+	}
+
 	public Offender() {}
 
 	public Offender(int id, String src, String fullname, String alias, String dob, String sex, String height,
-			String weight, String eyes, String hair) {
+			String weight, String eyes, String hair, int orderBy) {
 		super();
 		this.id = id;
 		this.src = src;
@@ -76,6 +93,7 @@ public class Offender {
 		this.weight = weight;
 		this.eyes = eyes;
 		this.hair = hair;
+		this.orderBy = orderBy;
 
 	}
 
@@ -159,15 +177,26 @@ public class Offender {
 		this.hair = hair;
 	}
 
+	public int getOrderBy() {
+		return orderBy;
+	}
 
+	public void setOrderBy(int orderBy) {
+		this.orderBy = orderBy;
+	}
 
 	@Override
 	public String toString() {
 		return "Offender [id=" + id + ", src=" + src + ", fullname=" + fullname + ", alias=" + alias + ", dob=" + dob
 				+ ", sex=" + sex + ", height=" + height + ", weight=" + weight + ", eyes=" + eyes + ", hair=" + hair
-				 + "]";
+				+ ", orderBy=" + orderBy + ", offenses=" + offenses + "]";
 	}
-	
+
+
+
+
+
+
 	
 //	@Column(name="totalVotes")
 //	private int totalVotes;
