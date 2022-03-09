@@ -42,21 +42,21 @@ public class OffenderController {
 	
 	@PutMapping("/put")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void updateOffenderInfo(@RequestBody Offender updateOffenderRequest, HttpServletRequest req) {
+	public void updateOffenderInfo(@RequestBody Offender updateOffender) {
 
-		offenderService.updateOffender(updateOffenderRequest);
+		offenderService.updateOffender(updateOffender);
 	}
 	
-	@PatchMapping("/update")
-	@ResponseStatus(HttpStatus.OK)
-	public void updateOffender(@RequestBody Offender updateOffenderRequest, HttpServletRequest req) {
-		offenderService.updateOffender(updateOffenderRequest);
-	}
+//	@PatchMapping("/update")
+//	@ResponseStatus(HttpStatus.OK)
+//	public void updateOffender(@RequestBody Offender updateOffenderRequest, HttpServletRequest req) {
+//		offenderService.updateOffender(updateOffenderRequest);
+//	}
 	
-	@DeleteMapping("/delete/id")
+	@DeleteMapping("/delete")
 	@ResponseStatus(HttpStatus.OK)
-	public void deleteOffenderById(int id) {
-		offenderService.deleteOffenderById(id);
+	public void deleteOffender(Offender deleteOffender) {
+		offenderService.deleteOffenderById(deleteOffender.getId());
 	}
 
 }
