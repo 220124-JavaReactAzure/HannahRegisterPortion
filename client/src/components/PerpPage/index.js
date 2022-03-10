@@ -267,6 +267,17 @@ function PerpPage() {
         "eyes": "BRN",
         "hair": "BRN"
     },
+    {
+        "src": "austinm.png",
+        "fullname": "Austin's Cat",
+        "alias": "Austin's Cat",
+        "dob": "FEB 09, 2022",
+        "sex": "F",
+        "height": "2' 2\"",
+        "weight": "BRN",
+        "eyes": "BRN",
+        "hair": "BRN"
+    },
     ]
 
     const seedDB = async () => {
