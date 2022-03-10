@@ -23,12 +23,13 @@ public class Offense {
 	@Column(name = "offense_id", unique = true)
 	private int id;
 
-//	@ManyToOne
-//	@JoinColumn(name = "offender_id")
-//	private Offender offender;
 
 	@Column(name = "offense_description", unique = false, nullable = false)
 	private String offense_description;
+	
+	@ManyToOne
+	@JoinColumn(name = "offender_id")
+	private Offender offender;
 	
 	
 	
@@ -50,13 +51,13 @@ public class Offense {
 		this.id = id;
 	}
 
-//	public Offender getOffender() {
-//		return offender;
-//	}
-//
-//	public void setOffender(Offender offender) {
-//		this.offender = offender;
-//	}
+	public Offender getOffender() {
+		return offender;
+	}
+
+	public void setOffender(Offender offender) {
+		this.offender = offender;
+	}
 
 	public String getOffense_description() {
 		return offense_description;

@@ -37,6 +37,10 @@ public class Deputy {
 //        name = "deputy_offender",
 //        joinColumns = { @JoinColumn(name = "deputy_id") },
 //        inverseJoinColumns = { @JoinColumn(name = "offender_id") })
+	
+	
+//	@OneToMany(mappedBy = "creator", fetch = FetchType.LAZY)
+//	private List<Monster> userMonsters;
 //	
 //	
 	

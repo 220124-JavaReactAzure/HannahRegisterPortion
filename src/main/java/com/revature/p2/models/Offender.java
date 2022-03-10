@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -23,11 +25,16 @@ public class Offender {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="offender_id", unique=true)
 	private int id;
-//	
-//
-//	private Deputy deputy;
 	
 	
+	// this is what I'm testing, in between this//
+	@ManyToOne
+	@JoinColumn(name="deputy_id", nullable = false)
+	private Deputy deputy;
+	// this is what I'm testing//
+	
+	
+
 	// image
 	@Column(name="src", unique=false, nullable=false)
 	private String src;
@@ -66,6 +73,29 @@ public class Offender {
 	
 	
 	public Offender() {}
+	
+	
+
+
+
+	public Offender(int id, Deputy deputy, String src, String fullname, String alias, String dob, String sex, String height,
+		String weight, String eyes, String hair, int orderBy) {
+	super();
+	this.id = id;
+	this.deputy = deputy;
+	this.src = src;
+	this.fullname = fullname;
+	this.alias = alias;
+	this.dob = dob;
+	this.sex = sex;
+	this.height = height;
+	this.weight = weight;
+	this.eyes = eyes;
+	this.hair = hair;
+	this.orderBy = orderBy;
+}
+	
+
 
 	public Offender(int id, String src, String fullname, String alias, String dob, String sex, String height,
 			String weight, String eyes, String hair, int orderBy) {
@@ -81,8 +111,11 @@ public class Offender {
 		this.eyes = eyes;
 		this.hair = hair;
 		this.orderBy = orderBy;
-
 	}
+
+
+
+
 
 	public int getId() {
 		return id;
