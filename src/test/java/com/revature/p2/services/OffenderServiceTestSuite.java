@@ -3,6 +3,9 @@ package com.revature.p2.services;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +34,16 @@ public class OffenderServiceTestSuite {
 		Assert.assertEquals(sut.addOffender(validOffender), validOffender);
 	}
 	
-	
+	@Test
+	public void test_getAllOffenders() {
+		Offender off1 = new Offender(2, "src2", "fullname2", "alias2", "dob2", "sex2", "height2", "weight2", "eyes2", "hair2", 200);
+		Offender off2 = new Offender(3, "src3", "fullname3", "alias3", "dob3", "sex3", "height3", "weight3", "eyes3", "hair3", 300);
+		List<Offender> offList = new ArrayList<>();
+		offList.add(off2); offList.add(off1); offList.add(validOffender);
+		when(mockOffenderDAO.findAll()).thenReturn(offList);
+		
+		Assert.assertEquals(sut.getAllOffenders(), offList);
+	}
 	
 	
 	
