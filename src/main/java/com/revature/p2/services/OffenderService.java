@@ -18,6 +18,14 @@ public class OffenderService {
 	@Autowired
 	private OffenderDAO offenderDAO;
 	
+	public OffenderService() {
+		super();
+	}
+	
+	public OffenderService(OffenderDAO offenderDAO) {
+		this.offenderDAO = offenderDAO;
+	}
+	
 	public Offender addOffender(Offender offender) {
 		return offenderDAO.save(offender);
 	}

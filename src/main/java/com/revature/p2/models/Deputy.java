@@ -96,10 +96,10 @@ public class Deputy {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, id, password, username);
+		return Objects.hash(email, id, offenders, password, username);
 	}
 
 	@Override
@@ -111,9 +111,10 @@ public class Deputy {
 		if (getClass() != obj.getClass())
 			return false;
 		Deputy other = (Deputy) obj;
-		return Objects.equals(email, other.email) && id == other.id && Objects.equals(password, other.password)
-				&& Objects.equals(username, other.username);
+		return Objects.equals(email, other.email) && id == other.id && Objects.equals(offenders, other.offenders)
+				&& Objects.equals(password, other.password) && Objects.equals(username, other.username);
 	}
+	
 	
 }
 
