@@ -1,4 +1,5 @@
 import React from 'react'
+import EditComplaint from '../../FileComplaint/EditComplaint';
 import { Table, Button, ButtonGroup } from 'react-bootstrap';
 
 function PerpOffenses({ hProps, data }) {
@@ -39,8 +40,8 @@ function PerpOffenses({ hProps, data }) {
                             {hProps.map((c, j) => (<td key={`${c}-${j}`}>{e[c]}</td>))}
                             <td>
                                 <ButtonGroup>
-                                    <Button className={"btn-primary"} variant="flat">Edit</Button>
-                                    <Button className={"btn-primary"} variant="danger" onClick={() => deleteOffense(e.id)}>{JSON.stringify(e)}Delete</Button>
+                                    <EditComplaint  data={e} />
+                                    <Button className={"btn-primary"} variant="danger" onClick={() => deleteOffense(e.id)}>Delete</Button>
                                 </ButtonGroup>
                             </td>
                         </tr>)

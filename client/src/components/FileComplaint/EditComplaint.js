@@ -2,16 +2,19 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Button, Modal, Table, Form, FloatingLabel, Image, Container, Row, Col } from 'react-bootstrap'
 import axios from 'axios'
 
-function FileComplaint(props) {
+function EditComplaint(props) {
 
     const [data, setData] = useState(
         props.data
     );
     const [state, setState] = useState({})
+
+    
+
     const [submitData, seSubmitData] = useState({
         offenseDate: "",
         offenseDescription: "",
-        offender: { id: props.data.id }
+        id: data.id
     })
 
     const handleDateChange = event => {
@@ -19,7 +22,6 @@ function FileComplaint(props) {
         seSubmitData({
             ...submitData,
             offenseDate: event.target.value,
-            offender: { id: data.id }
         });
     }
 
@@ -27,7 +29,6 @@ function FileComplaint(props) {
         seSubmitData({
             ...submitData,
             offenseDescription: event.target.value,
-            offender: { id: data.id }
         });
     }
 
@@ -95,17 +96,12 @@ function FileComplaint(props) {
     const submitOffense = (e) => {
 
         e.preventDefault();
-        props.setData({
-            ...data, ...data.offenses.push(submitData)
-        })
 
         console.log('submitOffense:submitData: ', submitData)
-
-        axios.post('http://localhost:8083/p2/offense/add', submitData)
+        axios.put(`http://localhost:8083/p2/offense/put`, submitData)
             .then(res => {
                 console.log('axios.post');
                 console.log(res.data);
-                
                 // props.setData([...data, submitData])
             }).catch(e => {
                 console.log(e)
@@ -124,7 +120,7 @@ function FileComplaint(props) {
 
     return (
         <>
-            <Button onClick={() => setLgShow(true)}>File a Complaint</Button>
+            <Button onClick={() => setLgShow(true)}>Edit Complaint</Button>
             <Modal
                 size="lg"
                 show={lgShow}
@@ -133,7 +129,7 @@ function FileComplaint(props) {
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-lg">
-                        File a Complaint
+                        Edit Complaint
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -154,7 +150,7 @@ function FileComplaint(props) {
 
                     </Form> */}
                     <Container><Row><Col lg={4}>
-                        <Image src={props.data.src} style={{ height: 300 }} wrapped ui={false} />
+                    {/* <Image src={props.data.src} style={{ height: 300 }} wrapped ui={false} />  */}
                     </Col>
                         <Col lg={8}>
                             <Table style={{ textAlign: 'left', width: '90%' }}>
@@ -224,7 +220,7 @@ function FileComplaint(props) {
                             <Form.Control type="date" placeholder="Date"
                                 name="date"
                                 // ref={dateInput}
-                                // value={submitData.date} 
+                                 
                                 onChange={handleDateChange}
                             />
                             <Form.Text className="text-muted">
@@ -238,14 +234,14 @@ function FileComplaint(props) {
                                 placeholder="Leave a comment here"
                                 style={{ height: '100px' }}
                                 name="offeseDescription"
-                                // value={submitData.offenseDescription}
+                            
                                 onChange={handleDescriptionChange}
                             // ref={offenseDescriptionInput}
                             />
                         </FloatingLabel>
                         <br />
                         <Button variant="primary" type="submit" onClick={submitOffense}>
-                            Submit
+                            Submit Changes
                         </Button>
                     </Form>
 
@@ -255,4 +251,4 @@ function FileComplaint(props) {
     )
 }
 
-export default FileComplaint
+export default EditComplaint
