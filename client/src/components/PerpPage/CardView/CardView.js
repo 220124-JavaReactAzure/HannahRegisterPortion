@@ -4,10 +4,12 @@ import { Card, Container, Row, Col, Table, Image, Button, ButtonGroup, Spinner }
 
 function CardView({ filteredData, setViewMode, setActiveProfileRow }) {
     return (
-        <Container >
+        <Container fluid>
             <Row>
+                <br/>
+                <h1>Trading Cards (NFTs)</h1>
                 {filteredData && filteredData.map((e, i) => (<>
-                    <Col lg={3}>
+                    <Col lg={2}>
                         <Card style={{ paddingTop: '15px', height: '100%', marginTop: '30px' }}>
                             {/* <MDBIcon style={{ textAlign: 'center' }} icon="camera-retro" size="5x" /> */}
                             <Image style={{ height: 'auto', width:'100%' }} src={e.src} />
@@ -23,10 +25,15 @@ function CardView({ filteredData, setViewMode, setActiveProfileRow }) {
                                 </Card.Text>
                             </Card.Body>
                             <Card.Footer>
+                                <ButtonGroup>
                                 <Button className={"btn-primary"} variant="flat" onClick={() => {
                                     setViewMode('profile')
                                     setActiveProfileRow(i)
                                 }}>View Details</Button>
+                                <Button className={"btn-primary"} variant="flat" onClick={() => {
+                                    setViewMode('profile')
+                                    setActiveProfileRow(i)
+                                }}>Order</Button></ButtonGroup>
                             </Card.Footer>
                         </Card>
                         {/* {['src'].map((c, j) => {
