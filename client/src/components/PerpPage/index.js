@@ -14,6 +14,8 @@ function PerpPage() {
     const [searchString, setSearchString] = useState("")
     const [filteredData, setFilteredData] = useState([])
     const [data, setData] = useState([]);
+    const [removed, setRemoved] = useState(false);
+
     async function fetchOffenders() {
         const response = await fetch("http://localhost:8083/p2/offender/getAllOffender");
         const fetchedOffenders = await response.json();
@@ -289,12 +291,16 @@ function PerpPage() {
         fetchOffenders();
     }, []);
 
+    useEffect(() => {
+        fetchOffenders();
+    }, [removed]);
+
     async function deleteOffender(id) {
-        const response = await fetch(`http://localhost:8083/p2/offender/delete/id?id=${id}`, {
+        await fetch(`http://localhost:8083/p2/offender/delete/id?id=${id}`, {
           method: "DELETE",
         });
-        console.log(`Deleting ${id}`);
-        return response.json();
+        alert(`Deleting ${id}`);
+        removed ? setRemoved(false): setRemoved(true);
     }
 
 

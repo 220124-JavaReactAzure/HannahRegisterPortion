@@ -8,6 +8,7 @@ function FileComplaint(props) {
         props.data
     );
     const [state, setState] = useState({})
+    const [complaint, setComplaint] = useState(false);
     const [submitData, seSubmitData] = useState({
         offenseDate: "",
         offenseDescription: "",
@@ -110,6 +111,7 @@ function FileComplaint(props) {
             }).catch(e => {
                 console.log(e)
             })
+        complaint ? setComplaint(false): setComplaint(true);
     }
 
     const handleSubmit = event => {
