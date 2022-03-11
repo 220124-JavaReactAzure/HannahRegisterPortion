@@ -16,6 +16,14 @@ public class DeputyService {
 	@Autowired
 	private DeputyDAO deputyDAO;
 	
+	public DeputyService() {
+		super();
+	}
+	
+	public DeputyService(DeputyDAO deputyDAO) {
+		this.deputyDAO = deputyDAO;
+	}
+	
 	public Deputy addDeputy(Deputy deputy) {
 		return deputyDAO.save(deputy);
 	}

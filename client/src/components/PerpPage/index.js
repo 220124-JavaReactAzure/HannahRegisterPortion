@@ -297,7 +297,7 @@ function PerpPage() {
 
     async function deleteOffender(id) {
         await fetch(`http://localhost:8083/p2/offender/delete/id?id=${id}`, {
-          method: "DELETE",
+            method: "DELETE",
         });
         alert(`Deleting ${id}`);
         removed ? setRemoved(false): setRemoved(true);
