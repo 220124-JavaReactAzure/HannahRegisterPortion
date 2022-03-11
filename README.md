@@ -10,7 +10,7 @@ If you, the disappointed pet-owner, want to discipline your pet for bad behavior
 On our site, you can also browse the offender directory, to see all registered silly -pets. 
 From the directory, you can click on a single offender and view all of their offenses.  If you feel that your pet has changed their ways, and you want give them redemption, using the redemption feature, you can make a post about them, praising and rewarding them for changing their ways.
 
-User Stories
+# User Stories
 * Users are able to:
     * register an offender
     * edit the offender information
@@ -23,7 +23,17 @@ User Stories
     * delete a complaint for pets that have changed their naughty ways
     * Appreciate a random beautiful picture of a dog, newly generated about reload
 
-Contributors
+# Tech Stack:
+* Azure SQL/PostGreSQL 
+* Java 8 and Spring 5
+* UI built with React JS and React-Bootstrap
+* Maven for build automation tool
+* Spring Framework and Spring boot for Java API
+* Spring Data JPA 
+
+
+
+# Contributors
 * Hannah Hospital
 * Paul Aglipay
 * Austin Ristau
