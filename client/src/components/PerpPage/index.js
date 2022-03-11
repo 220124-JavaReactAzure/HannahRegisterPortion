@@ -9,6 +9,7 @@ import SearchBar from './SearchBar/SearchBar';
 import CardView from './CardView/CardView';
 
 function PerpPage() {
+    const [removed, setRemoved] = useState()
     const [isLoading, setIsLoading] = useState(true);
     const [viewMode, setViewMode] = useState("table");
     const [acitveProfileRow, setActiveProfileRow] = useState(0)
@@ -18,7 +19,7 @@ function PerpPage() {
     async function fetchOffenders() {
         const response = await fetch("http://localhost:8083/p2/offender/getAllOffender");
         const fetchedOffenders = await response.json();
-        console.log(fetchedOffenders);
+        console.log('fetchedOffenders: ', fetchedOffenders);
         setIsLoading(false);
         setData(fetchedOffenders);
     }
@@ -26,7 +27,7 @@ function PerpPage() {
     const seedData = [{
         "src": "images (a).png",
         "fullname": "Guilty",
-        "alias": "Guilty AF",
+        "alias": "Guilty",
         "dob": "FEB 09, 2022",
         "sex": "M",
         "height": "2' 2\"",
@@ -280,8 +281,9 @@ function PerpPage() {
     },
     ]
     const seedOffenseData = [
-        { "offenseDate": "2022-03-01", "offenseDescription": "Pooped on the bed", "offender": { "id": 1 } },
-        { "offenseDate": "2022-03-02", "offenseDescription": "Bit the neighbor", "offender": { "id": 1 } }
+        { "offenseDate": "2022-03-02", "offenseDescription": "Bit the cat", "offender": { "id": 1 } },
+        { "offenseDate": "2022-03-02", "offenseDescription": "Ate the couch", "offender": { "id": 1 } },
+        { "offenseDate": "2022-03-02", "offenseDescription": "Stole a shoe", "offender": { "id": 1 } }
     ]
     const seedDB = async () => {
         for (let i = 0; i < seedData.length; i++) {
@@ -325,12 +327,22 @@ function PerpPage() {
         fetchOffenders();
     }, []);
 
+    useEffect(() => {
+        // seedDB();
+        fetchOffenders();
+    }, [removed]);
+
+
+
     async function deleteOffender(id) {
-        const response = await fetch(`http://localhost:8083/p2/offender/delete/id?id=${id}`, {
+        const url = `http://localhost:8083/p2/offender/delete/id?id=${id}`
+        console.log(url)
+        const response = await fetch(url, {
             method: "DELETE",
         });
-        console.log(`Deleting ${id}`);
-        return response.json();
+        console.log(`Deleting ${id} ${JSON.stringify(response)}`);
+        removed ? setRemoved(false) : setRemoved(true)
+        // return response.json();
     }
 
 
@@ -380,7 +392,7 @@ function PerpPage() {
                 (<Table >
                     <thead>
                         <tr>
-                            {['src', 'fullname', 'alias', 'dob', 'sex', 'hair', 'eyes', 'Delete'].map((c, j) => {
+                            {['id','src', 'fullname', 'alias', 'dob', 'sex', 'hair', 'eyes', 'Delete'].map((c, j) => {
                                 return (<th key={`th-${j}`}>
                                     {c}
                                 </th>)
@@ -391,6 +403,11 @@ function PerpPage() {
                     <tbody>
                         {filteredData && filteredData.map((e, i) => (<>
                             <tr>
+                                {['id'].map((c, j) => {
+                                    return (<td key={`pm-${i}${j}`}>
+                                        {e[c]}
+                                    </td>)
+                                })}
                                 {['src'].map((c, j) => {
                                     return (<Image onClick={() => {
                                         setViewMode('profile')

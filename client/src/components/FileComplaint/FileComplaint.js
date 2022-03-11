@@ -237,8 +237,10 @@ function FileComplaint(props) {
 
                             <Form.Select aria-label="Default select example" name="offenseType" >
                                 <option>Select</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
+                                <option value="M">Chewed up Couch</option>
+                                <option value="F">Bothered a Cat</option>
+                                <option value="F">Bit the neighbor</option>
+                                <option value="F">Stole some shoes</option>
                             </Form.Select>
                             <Form.Text className="text-muted">
                                 Please provide the closes type of offense of the incedent.
