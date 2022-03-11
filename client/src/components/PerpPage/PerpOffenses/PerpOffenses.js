@@ -10,7 +10,6 @@ function PerpOffenses({ hProps, data }) {
         });
         console.log(`Deleting ${id}`);
         //window.location.reload(false);
-        return response.json();
     }
 
     return (

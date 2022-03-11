@@ -8,7 +8,7 @@ function EditComplaint(props) {
         props.data
     );
     const [state, setState] = useState({})
-
+    const [edited, setEdited] = useState(false);
     
 
     const [submitData, seSubmitData] = useState({
@@ -31,6 +31,7 @@ function EditComplaint(props) {
             offenseDescription: event.target.value,
         });
     }
+
 
     useEffect(() => {
         console.log(submitData)
@@ -100,12 +101,13 @@ function EditComplaint(props) {
         console.log('submitOffense:submitData: ', submitData)
         axios.put(`http://localhost:8083/p2/offense/put`, submitData)
             .then(res => {
-                console.log('axios.post');
+                console.log('axios.put');
                 console.log(res.data);
                 // props.setData([...data, submitData])
             }).catch(e => {
                 console.log(e)
             })
+            edited ? setEdited(false): setEdited(true);
     }
 
     const handleSubmit = event => {
