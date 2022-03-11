@@ -63,7 +63,7 @@ function Home() {
                             <Card.Body>
                                 <Card.Title>At Your Service</Card.Title>
                                 <Card.Text>
-                                    Pawroled has weeks of experirience is reasearch and treatment. And we know our pets are way more intuitive than they pretend to be. They are fully aware when they are the target or mockery and humiliation.
+                                    Pawroled has weeks of experience is reasearch and treatment. We all know our pets are way more intuitive than they pretend to be. They are fully aware when they are the target or mockery and humiliation.
                                 </Card.Text>
                             </Card.Body>
                             <Card.Footer>
