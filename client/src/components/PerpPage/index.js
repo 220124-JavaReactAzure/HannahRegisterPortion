@@ -279,7 +279,10 @@ function PerpPage() {
         "hair": "BRN"
     },
     ]
-
+    const seedOffenseData = [
+        { "offenseDate": "2022-03-01", "offenseDescription": "Pooped on the bed", "offender": { "id": 1 } },
+        { "offenseDate": "2022-03-02", "offenseDescription": "Bit the neighbor", "offender": { "id": 1 } }
+    ]
     const seedDB = async () => {
         for (let i = 0; i < seedData.length; i++) {
             const offenderObj = { ...seedData[i], orderBy: 100 + i };
@@ -295,6 +298,27 @@ function PerpPage() {
             }
                 , i * 1000)
         }
+
+
+
+        for (let j = 0; j < 22; j++) {
+            for (let i = 0; i < seedOffenseData.length; i++) {
+
+                const offenseObj = { ...seedOffenseData[i], offender: { id: j } };
+                console.log(offenseObj)
+
+                setTimeout(() => {
+                    fetch("http://localhost:8083/p2/offense/add", {
+                        method: "POST",
+                        headers: { "Content-type": "application/json" },
+                        body: JSON.stringify(offenseObj)
+                    }).then(() => {
+                        console.log("offense added")
+                    })
+                }
+                    , i * 1000 + 22000)
+            }
+        }
     }
     useEffect(() => {
         // seedDB();
@@ -303,7 +327,7 @@ function PerpPage() {
 
     async function deleteOffender(id) {
         const response = await fetch(`http://localhost:8083/p2/offender/delete/id?id=${id}`, {
-          method: "DELETE",
+            method: "DELETE",
         });
         console.log(`Deleting ${id}`);
         return response.json();
@@ -326,9 +350,9 @@ function PerpPage() {
 
     return isLoading ? <>
         <div className="center" style={{ height: '600px', textAlign: 'center', border: '3px' }}>
-            <br/>
+            <br />
             <h1>Loading...</h1>
-            <br/>
+            <br />
             <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
@@ -350,7 +374,7 @@ function PerpPage() {
                 </ButtonGroup>
             </section>
             {viewMode === 'card' ?
-                (<CardView filteredData={filteredData} setViewMode={setViewMode} setActiveProfileRow={setActiveProfileRow}/>)
+                (<CardView filteredData={filteredData} setViewMode={setViewMode} setActiveProfileRow={setActiveProfileRow} />)
                 : null}
             {viewMode === 'table' ?
                 (<Table >
