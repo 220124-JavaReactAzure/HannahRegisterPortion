@@ -50,7 +50,7 @@ function App() {
                           <img src={"dissinyourdog.png"} />
                         </td>
                         <td>
-                          Dale Sturtevant - Head of Research at <br />PAW (Policing the Animals of the World)
+                          Dale Sturtevant - Head of Psychological Research at <br />PAW (Policing the Animals of the World) and author of Dissing Your Dog
                           <p style={{ fontSize: 14, textAlign: 'left' }}>
                             Dog expert Dale Sturtevant (Will Ferrell) advertises his new puppy training program, “Dissing Your Dog,” which uses mockery and verbal humiliation to effectively correct puppy behavior.
                           </p>
