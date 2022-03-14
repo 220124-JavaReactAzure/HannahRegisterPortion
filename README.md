@@ -6,9 +6,9 @@ Project Name: Paw-roled:
 DISCLAIMER: this is a humor site! this is meant to be taken as a joke, all pets are cherished and loved.
 
 Paw-roled is designed for pet owners, whose furry friends are up to no good! 
-If you, the disappointed pet-owner, want to discipline your pet for bad behavior, you can register your pet as an offender and make posts about their offenses. 
-On our site, you can also browse the offender directory, to see all registered silly -pets. 
-From the directory, you can click on a single offender and view all of their offenses.  If you feel that your pet has changed their ways, and you want give them redemption, using the redemption feature, you can make a post about them, praising and rewarding them for changing their ways.
+If you, the disappointed pet-owner, want to share your pet's bad behavior, you can register your pet as an offender and make posts about their offenses. 
+On our site, you can also browse the offender directory, to see all registered silly pets. 
+From the directory, you can click on a single offender and view all of their offenses.  If you feel that your pet has changed their ways, and you want give them redemption, you can delete or edit their offenses.
 
 # User Stories
 * Users are able to:
