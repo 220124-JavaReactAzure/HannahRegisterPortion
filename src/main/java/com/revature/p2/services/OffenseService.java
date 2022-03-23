@@ -18,6 +18,14 @@ public class OffenseService {
 	@Autowired
 	private OffenseDAO offenseDAO;
 	
+	public OffenseService() {
+		super();
+	}
+	
+	public OffenseService(OffenseDAO offenseDAO) {
+		this.offenseDAO = offenseDAO;
+	}
+	
 	public Offense addOffense(Offense offense) {
 		return offenseDAO.save(offense);
 	}

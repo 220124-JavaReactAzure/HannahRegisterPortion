@@ -46,7 +46,7 @@ function App() {
                           </p>
                         </td>
                       </tr>
-                      <tr style={{ height: '100%' }}>
+                      {/* <tr style={{ height: '100%' }}>
                         <td>
                           <img src={"dissinyourdog.png"} />
                         </td>
@@ -56,7 +56,7 @@ function App() {
                             Dog expert Dale Sturtevant (Will Ferrell) advertises his new puppy training program, “Dissing Your Dog,” which uses mockery and verbal humiliation to effectively correct puppy behavior.
                           </p>
                         </td>
-                      </tr>
+                      </tr> */}
                     </Table>
                   </Col>
                 </Row>
