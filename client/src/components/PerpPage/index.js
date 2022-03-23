@@ -26,7 +26,7 @@ function PerpPage() {
     const seedData = [{
         "src": "images (a).png",
         "fullname": "Guilty",
-        "alias": "Guilty AF",
+        "alias": "Guilty",
         "dob": "FEB 09, 2022",
         "sex": "M",
         "height": "2' 2\"",

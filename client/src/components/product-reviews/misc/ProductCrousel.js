@@ -247,8 +247,8 @@ function ProductCrousel(props) {    // const pics = ['cellphone', 'shirt', 'shoe
         "hair": "BRN"
     },
     ]
-    const [currentPic, setCurrentPic] = useState(Math.floor(Math.random() * (pics.length -2 )))
-    const randNum = Math.floor(Math.random() * (pics.length - 2))
+    const [currentPic, setCurrentPic] = useState(Math.floor(Math.random() * (pics.length - 5)))
+    const randNum = Math.floor(Math.random() * (pics.length - 5))
 
     return (<>
         <Carousel>
@@ -258,9 +258,17 @@ function ProductCrousel(props) {    // const pics = ['cellphone', 'shirt', 'shoe
                         <Container fluid>
                             <Row>
                                 {props.cols.map((e, i) => {
-                                    const randNum = Math.floor(Math.random() * (pics.length - 2))
+                                    const randNum = Math.floor(Math.random() * (pics.length - 5))
                                     return (<Col key={`imc2-${i}`} lg={e}>
 
+                                        <Card key={`imca2-${i}`} style={{ height: '100%' }}>
+                                            <Image
+                                                // onClick={() => setCurrentPic(randNum + i)} 
+                                                key={`im2-${i}`} src={`${pics[randNum + i].src}`} />
+                                            {/* <Card.Body>
+            <Card.Title></Card.Title>
+          </Card.Body> */}
+                                        </Card>
                                     </Col>)
                                 })}
 

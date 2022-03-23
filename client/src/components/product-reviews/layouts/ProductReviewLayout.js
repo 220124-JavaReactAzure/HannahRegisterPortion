@@ -185,9 +185,9 @@ function ProductReviewLayout() {
         },
         {
             title: "Product Reviews",
-            fluid: true,
+            fluid: false,
             cols: ["z", "z", "z"],
-            featureTypesArry: ['k', 'j']
+            featureTypesArry: ['h', 'h']
         },
         {
             title: "Stories",
@@ -216,7 +216,7 @@ function ProductReviewLayout() {
         },
         {
             title: "Stories",
-            fluid: true,
+            fluid: false,
             cols: ["3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3"],
             featureTypesArry: ['i', 'i', 'i', 'i', '5', '4', '3', '2']
         },

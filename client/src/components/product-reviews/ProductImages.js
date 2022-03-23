@@ -253,7 +253,7 @@ function ProductImages() {
     const [currentPic, setCurrentPic] = useState(Math.floor(Math.random() * (pics.length - 2)))
     const randNum = Math.floor(Math.random() * (pics.length - 3))
     return (
-        <Container>
+        <Container >
             <Row>
                 {[12].map((e, i) => {
                     // console.log(`${pics[randNum + i].src}`)
