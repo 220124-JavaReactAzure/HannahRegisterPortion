@@ -11,7 +11,7 @@ import Register from './components/Registration/Register';
 import RegisterOffender from './components/Registration/RegisterOffender';
 import Dog from './components/DogAPI.js'
 import RegisterOffender2 from './components/Registration/RegisterOffender2';
-
+import ProductReviewLayout from './components/product-reviews/ProductReviewLayout'
 function App() {
   return (
     <div className="App">
@@ -85,6 +85,10 @@ function App() {
             <Dog />
 
           </Route>
+            <Route
+              path="/product-review/"
+              element={<ProductReviewLayout />}
+            ></Route>
 
 
         </Switch>

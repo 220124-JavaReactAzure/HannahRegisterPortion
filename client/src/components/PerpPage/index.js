@@ -27,7 +27,7 @@ function PerpPage() {
     const seedData = [{
         "src": "images (a).png",
         "fullname": "Guilty",
-        "alias": "Guilty",
+        "alias": "Guilty Alex Foster",
         "dob": "FEB 09, 2022",
         "sex": "M",
         "height": "2' 2\"",
@@ -280,10 +280,22 @@ function PerpPage() {
         "hair": "BRN"
     },
     ]
+
+    const pad = (num, size) => {
+        num = num.toString();
+        while (num.length < size) num = "0" + num;
+        return num;
+    }
     const seedOffenseData = [
-        { "offenseDate": "2022-03-02", "offenseDescription": "Bit the cat", "offender": { "id": 1 } },
-        { "offenseDate": "2022-03-02", "offenseDescription": "Ate the couch", "offender": { "id": 1 } },
-        { "offenseDate": "2022-03-02", "offenseDescription": "Stole a shoe", "offender": { "id": 1 } }
+        { "offenseDate": "2022-02-" + pad((Math.floor(Math.random() * 28) + 1), 2), "offenseDescription": "Bit the cat", "offender": { "id": 1 } },
+        { "offenseDate": "2022-02-" + pad((Math.floor(Math.random() * 28) + 1), 2), "offenseDescription": "Ate the couch", "offender": { "id": 1 } },
+        { "offenseDate": "2022-02-" + pad((Math.floor(Math.random() * 28) + 1), 2), "offenseDescription": "Stole a shoe", "offender": { "id": 1 } },
+        { "offenseDate": "2022-02-" + pad((Math.floor(Math.random() * 28) + 1), 2), "offenseDescription": "Chased a cat", "offender": { "id": 1 } },
+        { "offenseDate": "2022-02-" + pad((Math.floor(Math.random() * 28) + 1), 2), "offenseDescription": "Bit a neighbor", "offender": { "id": 1 } },
+        { "offenseDate": "2022-02-" + pad((Math.floor(Math.random() * 28) + 1), 2), "offenseDescription": "Chased a squirl", "offender": { "id": 1 } },
+        { "offenseDate": "2022-02-" + pad((Math.floor(Math.random() * 28) + 1), 2), "offenseDescription": "Barked at middle of night", "offender": { "id": 1 } },
+        { "offenseDate": "2022-02-" + pad((Math.floor(Math.random() * 28) + 1), 2), "offenseDescription": "Broke a lamp", "offender": { "id": 1 } },
+        { "offenseDate": "2022-02-" + pad((Math.floor(Math.random() * 28) + 1), 2), "offenseDescription": "Chansed a dog", "offender": { "id": 1 } }
     ]
     const seedDB = async () => {
         for (let i = 0; i < seedData.length; i++) {
@@ -298,13 +310,14 @@ function PerpPage() {
                     console.log("offender added")
                 })
             }
-                , i * 1000)
+                , i * 500)
         }
 
 
 
-        for (let j = 0; j < 22; j++) {
-            for (let i = 0; i < seedOffenseData.length; i++) {
+        for (let j = 0; j < 24; j++) {
+            const randomI = Math.floor(Math.random() * 6);
+            for (let i = randomI; i < randomI + Math.floor(Math.random() * 3) + 1; i++) {
 
                 const offenseObj = { ...seedOffenseData[i], offender: { id: j } };
                 console.log(offenseObj)
@@ -318,7 +331,7 @@ function PerpPage() {
                         console.log("offense added")
                     })
                 }
-                    , i * 1000 + 22000)
+                    , i * 500 + 11000)
             }
         }
     }
@@ -392,7 +405,7 @@ function PerpPage() {
                 (<Table >
                     <thead>
                         <tr>
-                            {['id','src', 'fullname', 'alias', 'dob', 'sex', 'hair', 'eyes', 'Delete'].map((c, j) => {
+                            {['id', 'src', 'fullname', 'alias', 'dob', 'sex', 'hair', 'eyes', 'Delete'].map((c, j) => {
                                 return (<th key={`th-${j}`}>
                                     {c}
                                 </th>)
