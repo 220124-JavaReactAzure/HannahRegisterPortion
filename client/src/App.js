@@ -11,6 +11,7 @@ import Register from './components/Registration/Register';
 import RegisterOffender from './components/Registration/RegisterOffender';
 import Dog from './components/DogAPI.js'
 import RegisterOffender2 from './components/Registration/RegisterOffender2';
+import ProductReviewLayout from './components/product-reviews/layouts/ProductReviewLayout'
 
 function App() {
   return (
@@ -85,8 +86,9 @@ function App() {
             <Dog />
 
           </Route>
-
-
+          <Route exact path={["/", "/product-review"]}>
+            <ProductReviewLayout />
+          </Route>
         </Switch>
       </Router>
     </div >

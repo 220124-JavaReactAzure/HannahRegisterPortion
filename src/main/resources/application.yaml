@@ -8,9 +8,9 @@ spring:
     name: pawroledp2
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: YOUR_URL_HERE
-    username: YOUR_USERNAME_HERE
-    password: YOUR_PASSWORD_HERE
+    url: jdbc:postgresql://jr-postgres-hospital.postgres.database.azure.com:5432/postgres?currentSchema=pawroledp2
+    username: hospitalh@jr-postgres-hospital
+    password: FoolsGold69*
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
@@ -25,8 +25,3 @@ management:
           - "beans"
           - "health"
           - "info"
-   
-   
-
-    
-  
